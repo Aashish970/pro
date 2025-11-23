@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function filterJobs() {
+            let selected = document.getElementById("filter").value;
+            let jobs = document.querySelectorAll(".job");
+
+            jobs.forEach(job => {
+                if (selected === "all" || job.dataset.location === selected) {
+                    job.style.display = "block";
+                } else {
+                    job.style.display = "none";
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="internships.html">Internships</a>
+    <a href="resume-builder.html">Resume Builder</a>
+    <a href="career-guidance.html">Career Guidance</a>
+    <a href="skill-guide.html">Skill Guide</a>
+</nav>
+
+<div class="container">
+    <h2>Available Jobs</h2>
+
+    <label>Filter by Location:</label>
+    <select id="filter" onchange="filterJobs()">
+        <option value="all">All</option>
+        <option value="remote">Remote</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="delhi">Delhi</option>
+    </select>
+
+    <div class="job" data-location="remote">
+        <h3>Web Developer</h3>
+        <p>Location: Remote</p>
+        <a href="apply.html"><button>Apply</button></a>
+    </div>
+
+    <div class="job" data-location="mumbai">
+        <h3>Data Analyst</h3>
+        <p>Location: Mumbai</p>
+        <a href="apply.html"><button>Apply</button></a>
+    </div>
+
+    <div class="job" data-location="delhi">
+        <h3>Backend Developer</h3>
+        <p>Location: Delhi</p>
+        <a href="apply.html"><button>Apply</button></a>
+    </div>
+</div>
+
+</body>
+</html>
